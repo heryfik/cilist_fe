@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   frontend:
     image: heryfik/cilist-pipeline-fe:${GIT_COMMIT_SHORT}
