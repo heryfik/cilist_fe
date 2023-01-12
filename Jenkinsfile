@@ -16,16 +16,6 @@ pipeline {
    }
 
 
-   stage('Build backend') {
-     steps {
-       dir('backend') {
-         sh 'docker build . -t cilist-pipeline-be:$GIT_COMMIT_SHORT'
-         sh 'docker tag cilist-pipeline-be:$GIT_COMMIT_SHORT heryfik/cilist-pipeline-be:$GIT_COMMIT_SHORT'
-         sh 'docker push heryfik/cilist-pipeline-be:$GIT_COMMIT_SHORT'
-       }
-     }
-   }
-
    stage('Build frontend') {
      steps {
        dir('frontend') {
@@ -36,7 +26,7 @@ pipeline {
      }
    }
 	 
-	 stage('Deploy to remote server') {
+	 stage('Deploy Front end to remote server') {
      steps {
        sshPublisher(publishers: [sshPublisherDesc(configName: 'remote bigproject', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''docker-compose up -d
       
