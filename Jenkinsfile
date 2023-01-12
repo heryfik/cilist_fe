@@ -15,15 +15,6 @@ pipeline {
      }
    }
 
-   stage('Build database') {
-     steps {
-       dir('database') {
-         sh 'docker build . -t cilist-pipeline-db:$GIT_COMMIT_SHORT'
-         sh 'docker tag cilist-pipeline-db:$GIT_COMMIT_SHORT heryfik/cilist-pipeline-db:$GIT_COMMIT_SHORT'
-         sh 'docker push heryfik/cilist-pipeline-db:$GIT_COMMIT_SHORT'
-       }
-     }
-   }
 
    stage('Build backend') {
      steps {
@@ -47,7 +38,7 @@ pipeline {
 	 
 	 stage('Deploy to remote server') {
      steps {
-       sshPublisher(publishers: [sshPublisherDesc(configName: 'remote', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''docker-compose up -d
+       sshPublisher(publishers: [sshPublisherDesc(configName: 'remote bigproject', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''docker-compose up -d
       
        sleep 40
 
