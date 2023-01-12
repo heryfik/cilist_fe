@@ -14,8 +14,6 @@ pipeline {
        sh 'echo GIT_COMMIT_SHORT=$(echo $GIT_COMMIT_SHORT) > .env'
      }
    }
-
-
    stage('Build frontend') {
      steps {
        dir('frontend') {

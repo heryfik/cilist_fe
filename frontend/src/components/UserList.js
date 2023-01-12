@@ -41,9 +41,9 @@ const UserList = () => {
           <thead>
             <tr>
               <th>No</th>
-              <th>Name</th>
+              <th>Nama</th>
               <th>Email</th>
-              <th>Gender</th>
+              <th>Jenis Kelamin</th>
               <th>Actions</th>
             </tr>
           </thead>
