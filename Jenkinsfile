@@ -13,7 +13,7 @@ pipeline {
    stage('Prepare .env') {
      steps {
        sh 'echo GIT_COMMIT_SHORT=$(echo $GIT_COMMIT_SHORT) > .env'
-       sh 'echo BRANCH =$(echo $BRANCH)
+        echo ("BRACH : ${BRANCH}")
      }
    }
    stage('Build frontend') {
