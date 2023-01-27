@@ -6,14 +6,14 @@ pipeline {
 
  environment {
    GIT_COMMIT_SHORT = sh(returnStdout: true, script: '''echo $GIT_COMMIT | head -c 7''')
-   BRANCH = ${env.BRANCH_NAME}
+   
  }
 
  stages {
    stage('Prepare .env') {
      steps {
        sh 'echo GIT_COMMIT_SHORT=$(echo $GIT_COMMIT_SHORT) > .env'
-        echo ("BRACH : ${BRANCH}")
+        echo ("BRACH = ${env.BRANCH_NAME}")
      }
    }
    stage('Build frontend') {
