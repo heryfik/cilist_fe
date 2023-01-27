@@ -44,7 +44,7 @@ const UserList = () => {
               <th>Nama</th>
               <th>Email</th>
               <th>Jenis Kelamin</th>
-              <th>Actions</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
